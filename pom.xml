@@ -314,7 +314,7 @@
                     <deployables>
                         <was.War name="petclinic-war">
                             <contextRoot>petclinic</contextRoot>
-                            <fileUri>maven:org.springframework.samples:spring-petclinic:war:5.4.0</fileUri>
+                            <fileUri>maven:org.springframework.samples:spring-petclinic:war:5.4.0-SNAPSHOT</fileUri>
                              <tags>
                                 <value>server1</value>
                              </tags>
