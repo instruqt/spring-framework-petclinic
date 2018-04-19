@@ -40,7 +40,14 @@
         <postgresql-driver.version>9.4.1211.jre7</postgresql-driver.version>
 
         <jacoco.version>0.8.1</jacoco.version>
+
+        <deployit.username>admin</deployit.username>
+        <deployit.password>admin</deployit.password>
+        <deployit.server>xldeploy</deployit.server>
+        <deployit.port>4516</deployit.port>
+        <deployit.container>Environments/ACC</deployit.container>
     </properties>
+
 
     <distributionManagement>
        <snapshotRepository>
@@ -273,10 +280,42 @@
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-deploy-plugin</artifactId>
-               
+
                <configuration>
                   <skip>true</skip>
                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.xebialabs.xldeploy</groupId>
+                <artifactId>xldeploy-maven-plugin</artifactId>
+                <version>6.0.1</version>
+
+                <extensions>true</extensions> <!-- tells maven the plugin contains extensions -->
+
+                <configuration>
+                    <username>${deployit.username}</username>
+                    <password>${deployit.password}</password>
+                    <serverAddress>${deployit.server}</serverAddress>
+                    <port>${deployit.port}</port>
+                    <deletePreviouslyDeployedDar>true</deletePreviouslyDeployedDar>
+                    <timestampedVersion>false</timestampedVersion>
+                    <cancelTaskOnError>false</cancelTaskOnError>
+                    <deploymentPackageProperties>
+                        <orchestrator>default</orchestrator>
+                        <satisfiesReleaseNotes>true</satisfiesReleaseNotes>
+                    </deploymentPackageProperties>
+                    <deployables>
+                        <was.War name="petclinic-war">
+                            <contextRoot>petclinic</contextRoot>
+                            <fileUri>maven:org.springframework.samples:spring-petclinic:war:5.4.0</fileUri>
+                             <tags>
+                                <value>server1</value>
+                             </tags>
+                        </was.War>
+                    </deployables>
+                    <environmentId>${deployit.container}</environmentId>
+                </configuration>
             </plugin>
             <plugin>
                <groupId>org.sonatype.plugins</groupId>
@@ -508,9 +547,26 @@
                     <version>${postgresql-driver.version}</version>
                     <scope>runtime</scope>
                 </dependency>
-            </dependencies>
+            <dependency>
+               <groupId>com.xebialabs.xldeploy</groupId>
+               <artifactId>xldeploy-maven-plugin</artifactId>
+               <version>6.0.1</version>
+           </dependency>
+       </dependencies>
         </profile>
    </profiles>
+
+
+    <pluginRepositories>
+    <pluginRepository>
+        <id>xebialabs-maven2</id>
+        <url>https://dist.xebialabs.com/public/maven2/</url>
+    </pluginRepository>
+    <pluginRepository>
+        <id>knopflerfish</id>
+        <url>http://www.knopflerfish.org/maven2</url>
+    </pluginRepository>
+    </pluginRepositories>
 
     <repositories>
         <repository>
