@@ -45,7 +45,7 @@
     <distributionManagement>
        <snapshotRepository>
           <id>nexus-snapshots</id>
-          <url>http://172.17.0.1:8081/nexus/content/repositories/snapshots</url>
+          <url>http://172.17.0.1:8081/repository/maven-snapshots</url>
        </snapshotRepository>
     </distributionManagement>
 
@@ -273,6 +273,7 @@
             <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-deploy-plugin</artifactId>
+               
                <configuration>
                   <skip>true</skip>
                </configuration>
