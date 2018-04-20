@@ -318,13 +318,13 @@
                         <satisfiesReleaseNotes>true</satisfiesReleaseNotes>
                     </deploymentPackageProperties>
                     <deployables>
-                        <was.War name="petclinic-war">
+                        <tomcat.War name="petclinic-war">
                             <contextRoot>petclinic</contextRoot>
-                            <fileUri>maven:org.springframework.samples:spring-petclinic:war:5.0.4</fileUri>
+                            <fileUri>maven:${project.groupId}:${project.artifactId}:war:${project.version}</fileUri>
                              <tags>
                                  <value>Webserver</value>
                              </tags>
-                        </was.War>
+                        </tomcat.War>
                     </deployables>
                     <environmentId>${deployit.container}</environmentId>
                 </configuration>
