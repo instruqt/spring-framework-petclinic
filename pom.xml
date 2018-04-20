@@ -45,7 +45,7 @@
         <deployit.password>admin</deployit.password>
         <deployit.server>xldeploy</deployit.server>
         <deployit.port>4516</deployit.port>
-        <deployit.container>Environments/ACC</deployit.container>
+        <deployit.container>Environments/Acceptance</deployit.container>
     </properties>
 
 
@@ -320,9 +320,9 @@
                     <deployables>
                         <was.War name="petclinic-war">
                             <contextRoot>petclinic</contextRoot>
-                            <fileUri>maven:org.springframework.samples:spring-petclinic:war:5.4.0-SNAPSHOT</fileUri>
+                            <fileUri>maven:org.springframework.samples:spring-petclinic:war:5.0.4</fileUri>
                              <tags>
-                                <value>server1</value>
+                                 <value>Webserver</value>
                              </tags>
                         </was.War>
                     </deployables>
@@ -580,6 +580,10 @@
             <id>repository.spring.milestone</id>
             <name>Spring Milestone Repository</name>
             <url>http://repo.spring.io/milestone</url>
+        </repository>
+        <repository>
+            <id>xebialabs</id>
+            <url>https://dist.xebialabs.com/public/maven2/</url>
         </repository>
     </repositories>
 
