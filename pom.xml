@@ -320,9 +320,6 @@
                         <tomcat.War name="petclinic-war">
                             <contextRoot>petclinic</contextRoot>
                             <fileUri>maven:${project.groupId}:${project.artifactId}:war:${project.version}</fileUri>
-                             <tags>
-                                 <value>Webserver</value>
-                             </tags>
                         </tomcat.War>
                     </deployables>
                     <environmentId>${deployit.container}</environmentId>
