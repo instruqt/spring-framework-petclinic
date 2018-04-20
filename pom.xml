@@ -314,7 +314,6 @@
                     <timestampedVersion>false</timestampedVersion>
                     <cancelTaskOnError>false</cancelTaskOnError>
                     <deploymentPackageProperties>
-                        <orchestrator>default</orchestrator>
                         <satisfiesReleaseNotes>true</satisfiesReleaseNotes>
                     </deploymentPackageProperties>
                     <deployables>
